@@ -9,6 +9,7 @@ I got no info about how to zones affect calculations, so it was skipped during c
 
 
 ##Task
+
 Create an app for shipping price calculation.
 
 Specification:
