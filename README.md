@@ -8,6 +8,8 @@ I haven't used any js form validation.
 
 At this moment Calculation result is not saved in database. The same with import zones.
 I need more information if it's necessary.
+But migration for create calculation results table is provided.
+
 I got no info about how to zones affect calculations, so it was skipped during calculations.
 
 
