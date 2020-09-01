@@ -6,7 +6,7 @@
                 <a class="nav-link" href="calculation">Calculation</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="import">Import</a>
+                <a class="nav-link" href="files">Import</a>
             </li>
         </ul>
     </div>
