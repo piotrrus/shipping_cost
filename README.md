@@ -1,3 +1,32 @@
+## About App
+
+I have use Laravel to create this task.
+In repo therer's a lack of Vendor, Node, Storage folders.
+Validation for calculation form is provided in Rest style: with json like message if there's any error.
+At this moment Calculation result is not saved in database. The same with import zones.
+I need more information if it's necessary.
+I got no info about how to zones affect calculations, so it was skipped during calculations.
+
+
+##Task
+Create an app for shipping price calculation.
+
+Specification:
+
+The calculation form should contain fields:
+postcode, 
+total order amount, 
+checkbox "long product".
+Postcode is a 5-digit number. A user mustn't enter an incorrect value.
+The shipping cost is based on zone, total order amount, and long product flag.
+Zone means the first two digits of the postcode (examples: “35463” -> zone “35”, “23456” -> zone “23”).
+User can import zones from CSV file and saves data in database; sample data are in zones.csv.
+If the total order amount is greater than 12500 € then we should add a 5% discount to the total shipping price.
+If we have a long product, we should add extra shipping cost - 1995€.
+
+
+
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
