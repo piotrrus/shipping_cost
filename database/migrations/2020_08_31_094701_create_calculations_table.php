@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateCalculationsTable extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -13,14 +14,15 @@ class CreateCalculationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('calculations', function (Blueprint $table) {
+        Schema::create('calculations',
+            function (Blueprint $table) {
             $table->id();
-			$table->integer('id_user');
-			$table->integer('order_amount');
-			$table->decimal('shipping_cost', 2,1);
-			$table->decimal('postcode', 5,0);
-			$table->boolean('long_product');
-			$table->decimal('zone', 2, 0);
+            $table->integer('id_user');
+            $table->integer('order_amount');
+            $table->decimal('shipping_cost', 2, 1);
+            $table->decimal('postcode', 5, 0);
+            $table->boolean('long_product');
+            $table->decimal('zone', 2, 0);
             $table->timestamps();
         });
     }
