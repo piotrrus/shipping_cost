@@ -48,7 +48,7 @@ return [
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
-            'database' => 'booksDb',
+            'database' => 'price_calculation',
             'username' => 'piotrek',
             'password' => '123456!',
             'unix_socket' => env('DB_SOCKET', ''),
