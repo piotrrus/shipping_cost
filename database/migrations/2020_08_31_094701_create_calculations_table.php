@@ -17,12 +17,12 @@ class CreateCalculationsTable extends Migration
         Schema::create('calculations',
             function (Blueprint $table) {
             $table->id();
-            $table->integer('id_user');
             $table->integer('order_amount');
-            $table->decimal('shipping_cost', 2, 1);
+            $table->decimal('order_value', 10, 2);
+            $table->decimal('discount', 2, 2);
             $table->decimal('postcode', 5, 0);
-            $table->boolean('long_product');
-            $table->decimal('zone', 2, 0);
+            $table->boolean('long_product')->nullable();
+            $table->string('zone_value', 2);
             $table->timestamps();
         });
     }
