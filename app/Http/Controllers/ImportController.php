@@ -8,11 +8,6 @@ use App\Helpers\CsvFile;
 class ImportController extends BaseController
 {
 
-    public function index()
-    {
-        return view('home');
-    }
-
     public function import()
     {
         $file      = new CsvFile();
