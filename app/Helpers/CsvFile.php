@@ -25,7 +25,7 @@ class CsvFile implements FilesInterface
                     if ($c == self::ZONE_COLUMMN) {
                         $importedData[$row]['zone'] = $data[$c];
                     } elseif ($c == self::CODE_COLUMMN) {
-                        $importedData[$row]['code'] = $data[$c];
+                        $importedData[$row]['price'] = $data[$c];
                     }
                 }
                 $row++;

@@ -7,7 +7,7 @@ namespace App\Helpers;
  *
  * @author piotrek
  */
-use App\Models\CalculationModel;
+use App\Models\Calculation;
 
 class CalculationHelper
 {
@@ -17,18 +17,24 @@ class CalculationHelper
     const DISCOUNT                  = 5;
     const NO_DISCOUNT               = 0;
 
-    public function totalCost($calculationData)
+    public function calculate(Calculation $calculationData)
     {
-        $orderAmount = (int) $calculationData->orderAmount;
-        $discount    = $this->calculateDiscount($orderAmount);
+        $calculationData->discount = $this->calculateDiscount($calculationData);
+        $calculationData->totalPrice = $this->calculatePrice($calculationData);
+        return $calculationData;
+    }
+
+    private function calculatePrice(Calculation $calculationData) {
+        $price = $calculationData->price;
+        $discount    = $this->calculateDiscount($calculationData);
         $longProduct = $this->checkLongProduct($calculationData->longProduct);
-        $price       = $calculationData->price;
         return $price - ($price * ($discount)) + (int)$longProduct;
     }
 
-    public function calculateDiscount($orderAmount)
+    private function calculateDiscount(Calculation $calculationData)
     {
         $discount = self::NO_DISCOUNT;
+        $orderAmount = (int) $calculationData->orderAmount;
         if ($orderAmount > self::ORDER_AMOUNT_FOR_DISCOUNT) {
             $discount = self::DISCOUNT / 100;
         }
