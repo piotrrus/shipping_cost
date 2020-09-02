@@ -1,16 +1,14 @@
 ## About App
 
-I have use Laravel to create this task.
+I have used Laravel to create this task.
 In repo therer's a lack of Vendor, Node, Storage folders.
 
 Validation for calculation form is provided only in Rest style: with json like message if there's any error.
 I haven't used any js form validation.
 
-At this moment Calculation result is not saved in database. The same with import zones.
-I need more information if it's necessary.
-But migration for create calculation results table is provided.
-
-I got no info about how to zones affect calculations, so it was skipped during calculations.
+At this moment Calculation result is saved into database.
+Migration for create calculation results table is provided.
+Sql export file was also provided.
 
 
 ## Task
