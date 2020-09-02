@@ -32,7 +32,7 @@ class CalculationFormRequest extends AbstractFormRequest
         return [
             'order_amount' => 'bail|required|integer',
             'postcode' => 'required|digits:5',
-            'price' => 'required|regex:/^\d+(\.\d{1,2})?$/'
+            'price' => 'required'
         ];
     }
 
