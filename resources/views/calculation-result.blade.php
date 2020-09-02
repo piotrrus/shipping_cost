@@ -11,14 +11,23 @@
 
     </head>
     <body>
-         @include('navigation')
+        @include('navigation')
         <div class="container">
-           
+
             <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h2>Calculation Total: {{$calculations['calculationTotal']}} €</h2>
+                            <?php
+                            $content = $response->getContent();
+                            $array   = json_decode($content, true);
+                            ?>
+                            <h2>Calculation Total: {{$calculations['calculationData']->totalPrice}} €</h2>
+                            @if ( $array['success']==1)
+                            <div class="alert alert-success" role="alert">
+                                {{$array['message']}}
+                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -53,7 +62,7 @@
                     </tr>
                     <tr>
                         <td>discount</td>
-                        <td>{{$calculations['discount']}} %</td>
+                        <td>{{$calculations['calculationData']->discount * 100}} %</td>
                     </tr>
 
                 </tbody>

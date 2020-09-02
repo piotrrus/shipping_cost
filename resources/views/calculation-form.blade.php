@@ -12,7 +12,7 @@
     </head>
     <body>
         @include('navigation')
-        
+
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -28,7 +28,13 @@
                     ?>
                     <div class = "row">
                         <div class = "col">
-                            <input type="text" class="form-control" name="price" id="price" required>
+                            <select class="form-control" name="price" id="price" required>
+                                @foreach ($postcodes as $postcode)
+                                <option value="{{$postcode['zone']}}, {{$postcode['price']}}">
+                                    zone: {{$postcode['zone']}} price: {{$postcode['price']}}
+                                </option>
+                                @endforeach
+                            </select>
                             <label for="price">Price</label>
                         </div>
                     </div>
@@ -47,7 +53,7 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <input type="checkbox" class="form-check-input" id="long_product" name="long_product" value="true">
+                            <input type="checkbox" class="form-check-input" id="long_product" name="long_product" value="1">
                             <label for="long_product">Long product</label>
                         </div>
                     </div>
