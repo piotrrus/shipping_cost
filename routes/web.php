@@ -16,8 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 Route::post('/import', 'HomeController@import');
-//Route::get('/files', 'ImportController@index');
-
-//Route::post('/import', 'ImportController@import');
 Route::get('/calculation', 'CalculationController@index');
 Route::post('/calculate', 'CalculationController@calculate');
