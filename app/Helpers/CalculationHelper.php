@@ -25,7 +25,8 @@ class CalculationHelper
     }
 
     private function calculatePrice(Calculation $calculationData) {
-        $price = $calculationData->price;
+        //$price = $calculationData->price;
+        $price = $calculationData->orderAmount;
         $discount    = $this->calculateDiscount($calculationData);
         $longProduct = $this->checkLongProduct($calculationData->longProduct);
         return $price - ($price * ($discount)) + (int)$longProduct;

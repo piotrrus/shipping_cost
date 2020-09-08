@@ -7,7 +7,6 @@
         <h2>Calculate total price</h2>
     </div>
 </div>
-
 <div class="card">
     <div class="card-body">
         <p>Calculation form - shipping cost</p>
@@ -16,20 +15,7 @@
         ?>
         <div class = "row">
             <div class = "col">
-                <select class="form-control" name="price" id="price" required>
-                    @foreach ($postcodes as $postcode)
-                    <option value="{{$postcode['zone']}}, {{$postcode['price']}}">
-                        zone: {{$postcode['zone']}} price: {{$postcode['price']}}
-                    </option>
-                    @endforeach
-                </select>
-                <label for="price">Price</label>
-            </div>
-        </div>
-
-        <div class = "row">
-            <div class = "col">
-                <input type="text" class="form-control" name="order_amount" id="order_amount" required>
+                <input type="text" class="form-control" name="order_amount" id="order_amount" required readonly>
                 <label for="order_amount">Order amount</label>
             </div>
         </div>
@@ -51,4 +37,20 @@
         <?php echo Form::close(); ?>
     </div>
 </div>
+
+<script>
+    $("#postcode").change(function () {
+        var postcode = $("#postcode").val();
+        findPricecInPostCode(postcode);
+    });
+
+    function findPricecInPostCode(postcode) {
+        var zone = postcode;
+        $.getJSON("app/helpers/importCsv.php", function (result) {
+            zone = postcode.substring(0, 2);
+            var obj = Object.values(result).find(o => o.zone === zone);
+            $("#order_amount").val(obj.code);
+        });
+    }
+</script>
 @endsection

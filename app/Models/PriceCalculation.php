@@ -26,7 +26,6 @@ class PriceCalculation extends Model
 
         $model->postcode     = $calculationData->postcode;
         $model->long_product = $calculationData->longProduct;
-        $model->zone_value   = $calculationData->zone;
         $model->discount     = $calculationData->discount;
         $model->save();
     }

@@ -47,12 +47,6 @@ class CalculationController extends BaseController
     private function setCalculationData($request)
     {
         $calculationData = new Calculation();
-
-        $price                  = $request->input('price');
-        $priceAndZone           = explode(",", $price);
-        $calculationData->zone  = trim($priceAndZone[0]);
-        $calculationData->price = trim($priceAndZone[1]);
-
         $calculationData->longProduct = $request->input('long_product');
         $calculationData->orderAmount = $request->input('order_amount');
         $calculationData->postcode    = $request->input('postcode');

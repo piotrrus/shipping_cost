@@ -19,6 +19,10 @@ class HomeController extends BaseController
         $file      = new CsvFile();
         $fileName  = $_FILES['file']['tmp_name'];
         $postCodes = $file->getFile($fileName);
-        return view('calculation-form', ['postcodes' => $postCodes]);
+
+        return view('calculation-form',
+            [
+            'postcodes' => $postCodes
+        ]);
     }
 }
