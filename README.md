@@ -1,3 +1,16 @@
+## Modification
+
+Because zone is not neccessary to store in database it needed to modify this field:
+ALTER TABLE calculations MODIFY COLUMN zone_value varchar(3) NULL
+
+Calculation has at the moment 3 fields, as it was in task description.
+
+In calculation form view i've added js script that get all zone data from file thanks to jQuery ajax function.
+And find order amount in imported zone file.
+After changing postcode, order amount form field is filled by founded value.
+After that is possible to get shipping copst result.
+Zones.csv has been put to public directory.
+
 ## About App
 
 I have used Laravel to create this task.
