@@ -17,4 +17,4 @@ Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 Route::get('/import', 'ImportController@import');
 Route::get('/calculation', 'CalculationController@index');
-//Route::post('/calculate', 'CalculationController@calculate');
+Route::post('/calculate', 'CalculationController@calculate');

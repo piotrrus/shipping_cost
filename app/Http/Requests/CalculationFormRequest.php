@@ -2,14 +2,13 @@
 
 namespace App\Http\Requests;
 
-// use App\Http\Requests\AbstractFormRequest;
 use Illuminate\Foundation\Http\FormRequest;
 /**
  * Description of CalculationFormRequest
  *
  * @author piotrek FormRequest //
  */
-class CalculationFormRequest extends AbstractFormRequest
+class CalculationFormRequest extends FormRequest
 {
 
     /**

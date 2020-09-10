@@ -13,6 +13,7 @@ class CalculationController extends BaseController
 
     public function calculate(CalculationFormRequest $request)
     {
+
         $validated = $request->validated();
 
         if ($validated) {

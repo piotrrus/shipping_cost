@@ -10,19 +10,28 @@
 <div class="card">
     <div class="card-body">
         <p>Calculation form - shipping cost</p>
+
         <?php
-        echo Form::open(['url' => 'calculate']);
+        echo Form::open(['url' => 'calculate', 'name' => 'calculation', 'id' => 'calculation']);
         ?>
-      <div class = "row">
+        <div class = "row">
             <div class = "col">
                 <input type="text" class="form-control" name="order_amount" id="order_amount" required readonly>
-                <label for="order_amount">Order amount</label>
+                <label for="order_amount">Order amount
+                    @if($errors->has('order_amount'))
+                    <span class="text-danger">{{ $errors->first('order_amount') }} </span>
+                    @endif
+                </label>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <input type="text" class="form-control" name="postcode" id="postcode" required maxlength="5">
-                <label for="postcode">Postcode</label>
+                <label for="postcode">Postcode
+                    @if($errors->has('postcode'))
+                    <span class="text-danger">{{ $errors->first('postcode') }}</span>
+                    @endif
+                </label>
             </div>
         </div>
         <div class="row">
@@ -39,20 +48,25 @@
 </div>
 
 <script>
+
     $("#postcode").change(function () {
         var postcode = $("#postcode").val();
-        findPricecInPostCode(postcode);
+        console.log(postcode);
+        if (postcode.length ==2 && (!isNaN(postcode)) ) {
+            findPricecInPostCode(postcode);
+        }
     });
 
     function findPricecInPostCode(postcode) {
         var zone = postcode;
-        //$.getJSON("app/helpers/importCsv.php", function (result) {
+
         $.getJSON("import", function (result) {
             zone = postcode.substring(0, 2);
             console.log(result);
             var obj = Object.values(result).find(o => o.zone === zone);
             $("#order_amount").val(obj.code);
         });
+
     }
 </script>
 @endsection
