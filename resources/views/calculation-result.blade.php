@@ -29,19 +29,15 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>price</td>
-                        <td>{{$calculations['calculationData']->price}} €</td>
-                    </tr>
-                    <tr>
                         <td>order amount</td>
                         <td>{{$calculations['calculationData']->orderAmount}}</td>
                     </tr>
                     <tr>
                         <td>long product</td>
                         @if ($calculations['calculationData']->longProduct)
-                        <td>{{$calculations['calculationData']->longProduct}}</td>
+                        <td>yes</td>
                         @else
-                        <td>No</td>
+                        <td>no</td>
                         @endif
                     </tr>
                     <tr>

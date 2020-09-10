@@ -51,8 +51,7 @@
 
     $("#postcode").change(function () {
         var postcode = $("#postcode").val();
-        console.log(postcode);
-        if (postcode.length ==2 && (!isNaN(postcode)) ) {
+        if (postcode.length == 5 && (!isNaN(postcode))) {
             findPricecInPostCode(postcode);
         }
     });
