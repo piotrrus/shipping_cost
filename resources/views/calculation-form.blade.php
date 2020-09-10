@@ -13,7 +13,7 @@
         <?php
         echo Form::open(['url' => 'calculate']);
         ?>
-        <div class = "row">
+      <div class = "row">
             <div class = "col">
                 <input type="text" class="form-control" name="order_amount" id="order_amount" required readonly>
                 <label for="order_amount">Order amount</label>
@@ -46,8 +46,10 @@
 
     function findPricecInPostCode(postcode) {
         var zone = postcode;
-        $.getJSON("app/helpers/importCsv.php", function (result) {
+        //$.getJSON("app/helpers/importCsv.php", function (result) {
+        $.getJSON("import", function (result) {
             zone = postcode.substring(0, 2);
+            console.log(result);
             var obj = Object.values(result).find(o => o.zone === zone);
             $("#order_amount").val(obj.code);
         });

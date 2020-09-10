@@ -11,11 +11,6 @@ use App\Http\Requests\CalculationFormRequest;
 class CalculationController extends BaseController
 {
 
-    public function index()
-    {
-        return view('calculation-form');
-    }
-
     public function calculate(CalculationFormRequest $request)
     {
         $validated = $request->validated();
@@ -46,7 +41,7 @@ class CalculationController extends BaseController
      */
     private function setCalculationData($request)
     {
-        $calculationData = new Calculation();
+        $calculationData              = new Calculation();
         $calculationData->longProduct = $request->input('long_product');
         $calculationData->orderAmount = $request->input('order_amount');
         $calculationData->postcode    = $request->input('postcode');
